@@ -25,7 +25,7 @@ const PointOfSaleView = (props) => {
   } = props;
   const apiUrl = "https://localhost:44323/";
   return (
-    <>
+    <fragments>
       <Helmet>
         <title>Punto de venta</title>
       </Helmet>
@@ -89,9 +89,15 @@ const PointOfSaleView = (props) => {
             <div className="products__currentOrder">
               {Sale.map((sale) => (
                 <SaleItem
+                  setSale={setSale}
+                  Sale={Sale}
+                  setDetalle={setDetalle}
+                  setTotal={setTotal}
+                  detalle={detalle}
                   image={sale.image}
                   title={sale.title}
                   cantidad={sale.cantidad}
+                  productoID={sale.ProductoID}
                   price={sale.price}
                 />
               ))}
@@ -116,7 +122,7 @@ const PointOfSaleView = (props) => {
           </div>
         </div>
       </div>
-    </>
+    </fragments>
   );
 };
 export default PointOfSaleView;
